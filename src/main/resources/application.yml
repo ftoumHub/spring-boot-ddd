@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: "@project.artifactId@"
+  datasource:
+    url:  jdbc:postgresql://localhost:5432/ddd_springboot
+    username: ddd_springboot
+    password: ddd_springboot
+    driver-class-name: org.postgresql.Driver
+    tomcat:
+      max-active: 300
+  hikari:
+    connectionTimeout: 10000
+  jackson:
+    serialization:
+      write_dates_as_timestamps: false
+    time-zone: Europe/Paris
+    date-format: "yyyy-MM-dd"
+
+liquibase:
+  change-log: classpath:/db/changelogs/changelog.xml
+  enabled: true
+
+logging:
+  level:
+    com:
+      github:
+        sandokandias:
+          payments: DEBUG
+    org:
+      springframework:
+        web: ERROR
